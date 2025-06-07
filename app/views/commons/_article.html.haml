@@ -1,0 +1,19 @@
+= link_to article_path(id: article.id) do
+  .card
+    - if article.eyecatch.attached?
+      .card_image
+        = image_tag article.eyecatch
+    - else
+      .card_image
+        = image_tag 'eyecatch1.png'
+    .card_content
+      .card_title
+        = article.title
+      .card_heart
+        = image_tag 'heart.svg'
+        %span= article.like_count
+      .card_detail
+        = image_tag article.user.avatar_image
+        %div
+          %p= article.author_name
+          = article.display_created_at

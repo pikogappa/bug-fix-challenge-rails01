@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BlogApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %script{:crossorigin => "anonymous", :src => "https://kit.fontawesome.com/ff472d267a.js"}
+  %body
+    %header.header
+      .header_logos
+        - if !current_page?(root_path)
+          = link_to :back do
+            = image_tag 'back.svg', class: 'header_back'
+        = link_to 'Blog-app', root_path, class: 'header_pageTitle'
+      - if user_signed_in?
+        .dropdown
+          = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
+          .dropdown-content
+            = link_to 'プロフィール', profile_path
+            = link_to 'お気に入り', favorites_path
+            = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+      - elsif !current_page?(new_user_session_path)
+        .dropdown
+          = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
+    = yield
+    = render 'layouts/footer'

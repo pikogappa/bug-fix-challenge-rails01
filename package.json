@@ -1,0 +1,34 @@
+{
+  "name": "blog_app",
+  "private": true,
+  "engines": {
+    "node": "14.16"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-class-properties": "^7.25.4",
+    "@babel/plugin-transform-object-rest-spread": "^7.24.7",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/actiontext": "^6.0.6-1",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "^5.4.4",
+    "axios": "^1.7.7",
+    "jquery": "^3.7.1",
+    "rails-ujs": "^5.2.8-1",
+    "trix": "^1.2.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "babel-loader": "^8.2.0",
+    "open": "9.0.0",
+    "p-retry": "5.x.x",
+    "webpack": "4.x.x",
+    "webpack-cli": "3.x.x",
+    "webpack-dev-middleware": "3.x.x",
+    "webpack-dev-server": "3.x.x"
+  },
+  "scripts": {
+    "start": "bin/webpack-dev-server"
+  }
+}
