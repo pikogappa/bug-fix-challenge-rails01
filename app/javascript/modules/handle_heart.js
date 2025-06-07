@@ -2,7 +2,8 @@ import $ from "jquery";
 import axios from "modules/axios";
 
 const listenInactiveHeartEvent = (articleId) => {
-  $('.inactive-heart').on('click', () => {
+  // JavaScript構文エラー: セレクタミスと中括弧のズレ
+  $('.inactive-heart-button').on('click', () => {
     axios.post(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
@@ -13,12 +14,12 @@ const listenInactiveHeartEvent = (articleId) => {
       .catch((e) => {
         window.alert('Error')
         console.log(e)
-      })
+      }
   })
 }
 
 const listenActiveHeartEvent = (articleId) => {
-  $('.active-heart').on('click', () => {
+  $('.active-heart-button').on('click', () => {
     axios.delete(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
@@ -29,7 +30,7 @@ const listenActiveHeartEvent = (articleId) => {
       .catch((e) => {
         window.alert('Error')
         console.log(e)
-      })
+      }
   })
 }
 

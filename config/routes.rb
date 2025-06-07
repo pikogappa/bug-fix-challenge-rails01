@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     scope '/articles/:article_id' do
       resources :comments, only: [:create, :index]
-      resource :like, only: [:show, :create, :destroy]
+      # ルーティング設定ミス: resourceではなくresourcesにしてしまっている
+      resources :likes, only: [:show, :create, :destroy]
     end
   end
 end

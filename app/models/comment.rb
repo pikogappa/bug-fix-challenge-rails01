@@ -14,7 +14,9 @@
 #
 
 class Comment < ApplicationRecord
-  validates :content, presence: true
+  # バリデーション抜け漏れ: 空文字や異常に長いコメントを防げない
+  # validates :content, presence: true
+  # validates :content, length: { minimum: 1, maximum: 1000 }
 
   belongs_to :article
 end
