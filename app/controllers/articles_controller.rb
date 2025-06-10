@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     def index
-        # N+1クエリ問題: 記事数分だけユーザー情報を取得してしまう
         @articles = Article.all
     end
     
@@ -36,6 +35,7 @@ class ArticlesController < ApplicationController
             render :edit
         end
     end
+    end #小林さんコメント: end追加
 
     def destroy
         article = current_user.articles.find(params[:id])
