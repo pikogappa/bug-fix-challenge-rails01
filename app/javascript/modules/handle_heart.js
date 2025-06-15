@@ -2,7 +2,6 @@ import $ from "jquery";
 import axios from "modules/axios";
 
 const listenInactiveHeartEvent = (articleId) => {
-  // JavaScript構文エラー: セレクタミスと中括弧のズレ
   $('.inactive-heart-button').on('click', () => {
     axios.post(`/api/articles/${articleId}/like`)
       .then((response) => {

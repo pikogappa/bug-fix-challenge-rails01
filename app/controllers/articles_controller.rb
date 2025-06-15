@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
              flash.now[:error] = '保存に失敗しました'
              render :new
         end
-    # コントローラのメソッド境界エラー: createアクションのendが抜けている
+
     def edit
         @article = current_user.articles.find(params[:id])
     end
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
             render :edit
         end
     end
-    end #小林さんコメント: end追加
+    end 
 
     def destroy
         article = current_user.articles.find(params[:id])

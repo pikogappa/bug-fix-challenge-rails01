@@ -21,11 +21,9 @@ Rails.application.routes.draw do
     resource :timeline, only: [:show]
   end
 
-   # 小林さんコメント（盛大にバグらせ）: namespaceをresourcesに変更
   resources :api, defaults: {format: :json} do
     scope '/articles/:article_id' do
       resources :comments, only: [:create, :index]
-      # ルーティング設定ミス: resourceではなくresourcesにしてしまっている
       resources :likes, only: [:show, :create, :destroy]
     end
   end
